@@ -3,13 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Agent Detector</title>
+    <title>User Agent Detector and GET Parameters</title>
 </head>
 <body>
-    <h1>User Agent Detector</h1>
+    <h1>User Agent Detector and GET Parameters</h1>
     <p>Your user agent is:</p>
     <script>
         document.write(navigator.userAgent);
     </script>
+
+    <h2>GET Parameters</h2>
+    <p>This page was accessed with the following GET parameters:</p>
+    <ul>
+        <script>
+            // Get the query string from the URL
+            const queryString = window.location.search;
+
+            // Parse the query string into a key-value object
+            const params = new URLSearchParams(queryString);
+
+            // Iterate over the key-value pairs and display them in a list
+            for (const [key, value] of params.entries()) {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${key}: ${value}`;
+                document.querySelector('ul').appendChild(listItem);
+            }
+        </script>
+    </ul>
 </body>
 </html>
